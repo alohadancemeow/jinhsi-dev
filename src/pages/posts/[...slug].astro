@@ -14,7 +14,7 @@ changeLanguage("zh");
 export async function getStaticPaths() {
     const postEntries = await getCollection("posts");
     return postEntries.map((entry) => ({
-        params: { slug: SlugToRealSlug(entry.slug) },
+        params: { slug: SlugToRealSlug(entry.id) },
         props: { entry },
     }));
 }
