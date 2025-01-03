@@ -1,0 +1,35 @@
+{
+  "components": {
+    "copy_right": {
+      "author": "ผู้เขียน",
+      "publish_date": "วันที่เผยแพร่",
+      "license": "ลิขสิทธิ์"
+    },
+    "nav_bar": {
+      "home": "โฮม",
+      "archive": "คลัง",
+      "about": "เกี่ยวกับ",
+      "github": "GitHub"
+    },
+    "post_card": {
+      "words": "จำนวนคำ",
+      "minutes": "นาที"
+    },
+    "side_bar": {
+      "categories": "ประเภท",
+      "tags": "แท็ก"
+    },
+    "archive_year_title": {
+      "total_count": "จำนวนทั้งหมด {{count}} บทความ"
+    }
+  },
+  "layouts": {},
+  "pages": {
+    "categories": {
+      "archive": "คลังบทความ"
+    },
+    "archive": {
+      "archive": "คลัง"
+    }
+  }
+}

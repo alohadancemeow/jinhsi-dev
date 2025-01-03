@@ -3,6 +3,7 @@ import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import { SlugToRealSlug } from "../../utils/hash";
 import PostLayout from "../../layouts/PostLayout.astro";
+import { render } from "astro:content";
 
 changeLanguage("zh");
 
@@ -20,7 +21,7 @@ export async function getStaticPaths() {
 }
 const { entry } = Astro.props;
 // const { Content, remarkPluginFrontmatter } = await entry.render();
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <!-- <Fragment set:html={tocHTMLString} /> -->
