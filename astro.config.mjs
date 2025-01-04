@@ -11,9 +11,12 @@ import remarkMath from "remark-math";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { remarkTOC } from "./src/plugins/remark-toc.mjs";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   output: "static",
+
   integrations: [
     pagefind(),
     astroI18next(),
@@ -31,6 +34,7 @@ export default defineConfig({
       globalInstance: true,
     }),
   ],
+
   markdown: {
     shikiConfig: {
       theme: "github-dark-default",
@@ -47,4 +51,6 @@ export default defineConfig({
       ],
     ],
   },
+
+  adapter: netlify(),
 });
