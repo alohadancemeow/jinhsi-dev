@@ -6,6 +6,7 @@ import { localizePath } from "astro-i18next";
 import { SlugToRealSlug } from "../utils/hash";
 import Icon from "./widget/Icon.astro";
 import { GetCoverURLForUnspecifiedEntry } from "../utils/cover";
+import { render } from "astro:content";
 
 export interface Props {
   slug: string;
@@ -21,7 +22,7 @@ export interface Props {
 const props = Astro.props;
 const entryID = SlugToRealSlug(props.slug);
 const contentUrl = `/posts/${entryID}`;
-const { remarkPluginFrontmatter } = await props.entry.render();
+const { remarkPluginFrontmatter } = await render(props.entry);
 
 function formatDate(date: Date): string {
   return date
@@ -35,7 +36,9 @@ function formatDate(date: Date): string {
 ---
 
 <div class="flex h-[212px] flex-row bg-[var(--card-color)] md:rounded-3xl">
-  <div class="flex w-full flex-col space-y-3 py-8 pl-3 lg:w-[calc(var(--page-width-lg)-404px)] xl:w-[calc(var(--page-width-xl)-676px)]">
+  <div
+    class="flex w-full flex-col space-y-3 py-8 pl-3 lg:w-[calc(var(--page-width-lg)-404px)] xl:w-[calc(var(--page-width-xl)-676px)]"
+  >
     <div class="flex flex-row items-center">
       <div class="mx-2 h-5 w-1 rounded-lg bg-[var(--primary-color)]"></div>
       <a href={localizePath(contentUrl)} class="title">{props.title}</a>
@@ -54,7 +57,7 @@ function formatDate(date: Date): string {
                 <a
                   class="rounded-md px-1.5 py-0.5 text-[var(--text-color-lighten)] transition-all hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)]"
                   href={localizePath(
-                    `/categories/${SlugToRealSlug(props.category)}`,
+                    `/categories/${SlugToRealSlug(props.category)}`
                   )}
                 >
                   {props.category}

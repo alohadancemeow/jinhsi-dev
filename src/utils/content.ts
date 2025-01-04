@@ -24,20 +24,21 @@ export async function GetSortedPosts() {
   const allBlogPosts = await getCollection("posts", ({ data }) => {
     return import.meta.env.PROD ? data.draft !== true : true;
   });
+
   const sorted = allBlogPosts.sort((a, b) => {
     const dateA = new Date(a.data.published);
     const dateB = new Date(b.data.published);
     return dateA > dateB ? -1 : 1;
   });
 
-  for (let i = 1; i < sorted.length; i++) {
-    sorted[i].data.nextSlug = sorted[i - 1].slug;
-    sorted[i].data.nextTitle = sorted[i - 1].data.title;
-  }
-  for (let i = 0; i < sorted.length - 1; i++) {
-    sorted[i].data.prevSlug = sorted[i + 1].slug;
-    sorted[i].data.prevTitle = sorted[i + 1].data.title;
-  }
+  // for (let i = 1; i < sorted.length; i++) {
+  //   sorted[i].data.nextSlug = sorted[i - 1].slug;
+  //   sorted[i].data.nextTitle = sorted[i - 1].data.title;
+  // }
+  // for (let i = 0; i < sorted.length - 1; i++) {
+  //   sorted[i].data.prevSlug = sorted[i + 1].slug;
+  //   sorted[i].data.prevTitle = sorted[i + 1].data.title;
+  // }
 
   return sorted;
 }
@@ -57,9 +58,9 @@ export async function GetArchives() {
     }
     archives.get(year)!.push({
       title: post.data.title,
-      slug: `/posts/${SlugToRealSlug(post.slug)}`,
+      slug: `/posts/${SlugToRealSlug(post.id)}`,
       date: date,
-      tags: post.data.tags,
+      tags: post.data.tags!,
     });
   }
 
@@ -80,7 +81,7 @@ export async function GetTags() {
 
   const tags = new Map<string, Tag>();
   allBlogPosts.forEach((post) => {
-    post.data.tags.forEach((tag: string) => {
+    post.data.tags!.forEach((tag: string) => {
       const tagSlug = SlugToRealSlug(tag);
       if (!tags.has(tagSlug)) {
         tags.set(tagSlug, {
@@ -91,9 +92,9 @@ export async function GetTags() {
       }
       tags.get(tagSlug)!.posts.push({
         title: post.data.title,
-        slug: `/posts/${SlugToRealSlug(post.slug)}`,
+        slug: `/posts/${SlugToRealSlug(post.id)}`,
         date: new Date(post.data.published),
-        tags: post.data.tags,
+        tags: post.data.tags!,
       });
     });
   });
@@ -109,20 +110,20 @@ export async function GetCategories() {
   const categories = new Map<string, Category>();
 
   allBlogPosts.forEach((post) => {
-    const categorySlug = SlugToRealSlug(post.data.category);
+    const categorySlug = SlugToRealSlug(post.data.category!);
 
     if (!categories.has(categorySlug)) {
       categories.set(categorySlug, {
-        name: post.data.category,
+        name: post.data.category!,
         slug: `/categories/${categorySlug}`,
         posts: [],
       });
     }
     categories.get(categorySlug)!.posts.push({
       title: post.data.title,
-      slug: `/posts/${SlugToRealSlug(post.slug)}`,
+      slug: `/posts/${SlugToRealSlug(post.id)}`,
       date: new Date(post.data.published),
-      tags: post.data.tags,
+      tags: post.data.tags!,
     });
   });
 

@@ -1,26 +1,26 @@
 export const YukinaConfig = {
-  Title: "Yukina Template",
-  SubTitle: "Yukina Template Demo Site", // doesn't work when UseHitokotoSubtitle is true
-  BrandTitle: "Yukina",
+  Title: "Jinhsi Main",
+  SubTitle: "Jinhsi Main Demo Site", // doesn't work when UseHitokotoSubtitle is true
+  BrandTitle: "Jinhsi 今汐",
   UseHitokotoSubtitle: true,
   Description: "Demo Site",
   IconfontURL: "//at.alicdn.com/t/c/font_4507154_ptdxadr7249.css",
-  Avatar: "https://s2.loli.net/2024/12/06/zNY2H3mcrwhpi8f.webp",
+  Avatar: "https://s2.loli.net/2025/01/04/qG1yX5gAw9nKmua.png",
 
-  Username: "WhitePaper 白芷",
-  Sign: "Ad Astra Per Aspera.",
+  Username: "Jinhsi 今汐",
+  Sign: "The magistrate of Jinzhou.",
   SocialLinks: [
     {
       icon: "ic-github",
-      link: "https://github.com/WhitePaper233",
+      link: "https://github.com",
     },
     {
       icon: "ic-bilibili",
-      link: "https://space.bilibili.com/22433608",
+      link: "https://space.bilibili.com",
     },
     {
       icon: "ic-ncm",
-      link: "https://music.163.com/#/user/home?id=125291648",
+      link: "https://music.163.com",
     },
   ],
 
