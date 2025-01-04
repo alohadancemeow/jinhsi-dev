@@ -91,3 +91,8 @@ Jinhsi shares multiple voicelines with Changli, likely alluding to their relatio
 - Intro/Outro Skills: "Together we fight." (Jinhsi)/"Together we vanquish." (Changli)
 - Intro/Outro Skills: "Strike as one!" (Jinhsi)/"Strike!" (Changli)
 - Echo Skill: "Take form." (Jinhsi, Summon)/"Take form." (Changli, Transform)
+
+
+# Outfit Showcase | Jinhsi — Peach Blossom
+
+<iframe width="100%" height="468" src="https://www.youtube.com/embed/A55QDK6LRj0?si=HC37ssnLadVtztx3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

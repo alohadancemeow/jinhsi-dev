@@ -124,3 +124,8 @@ The DMG Multiplier of Resonance Skill Illuminous Epiphany is increased by 45% an
 There are 1 Trophys in the category Trophies Related to Jinhsi:
 
 - Jué Is With Me: Use Jinhsi's Outro Skill 100 times.
+
+## YouTube
+
+<iframe width="100%" height="468" src="https://www.youtube.com/embed/6x5SbbFXliE?si=OaqemSD8vuK5CYpt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
