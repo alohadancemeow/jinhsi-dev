@@ -15,11 +15,12 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  output: 'server',
   publicDir: './public',
   build: {
     outDir: './dist',
   },
+  adapter: netlify(),
 
   integrations: [
     pagefind(),
@@ -56,5 +57,4 @@ export default defineConfig({
     ],
   },
 
-  adapter: netlify(),
 });
