@@ -9,13 +9,17 @@ import rehypeSlug from "rehype-slug";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
-import { remarkTOC } from "./src/plugins/remark-toc.mjs";
+// import { remarkTOC } from "./src/plugins/remark-toc.mjs";
 
 import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
+  output: 'static',
+  publicDir: './public',
+  build: {
+    outDir: './dist',
+  },
 
   integrations: [
     pagefind(),
