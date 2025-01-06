@@ -6,28 +6,36 @@ import { GetCategories, type Archive } from "../../utils/content";
 changeLanguage("zh");
 
 export async function getStaticPaths() {
-    const categories = await GetCategories();
-    const categoryList = Array.from(categories.keys());
-    return categoryList.map((category) => ({
+  const categories = await GetCategories();
+  if (Array.isArray(categories)) {
+    categories.keys().map((category) => {
+      return {
         params: { category: category },
-    }));
+      };
+    });
+  } else {
+    console.error("categories is not an array:", categories);
+  }
+  // const categoryList = Array.from(categories.keys());
+  // return categoryList.map((category) => ({
+  //     params: { category: category },
+  // }));
 }
 const categories = await GetCategories();
 const { category } = Astro.params;
 async function FormatArchiveMap() {
-    const posts = categories.get(category)!.posts;
-    const categoryName = categories.get(category)!.name;
-    const archiveMap = new Map<number, Array<Archive>>();
-    posts.forEach((post) => {
-        const year = post.date.getFullYear();
-        if (archiveMap.has(year)) {
-            archiveMap.get(year)!.push(post);
-        }
-        else {
-            archiveMap.set(year, [post]);
-        }
-    });
-    return { archiveMap, categoryName };
+  const posts = categories.get(category)!.posts;
+  const categoryName = categories.get(category)!.name;
+  const archiveMap = new Map<number, Array<Archive>>();
+  posts.forEach((post) => {
+    const year = post.date.getFullYear();
+    if (archiveMap.has(year)) {
+      archiveMap.get(year)!.push(post);
+    } else {
+      archiveMap.set(year, [post]);
+    }
+  });
+  return { archiveMap, categoryName };
 }
 const { archiveMap, categoryName } = await FormatArchiveMap();
 ---
