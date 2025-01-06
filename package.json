@@ -45,6 +45,5 @@
     "rehype-slug": "^6.0.0",
     "remark-math": "^6.0.0",
     "yaml": "^2.6.0"
-  },
-  "packageManager": "yarn@4.5.3"
+  }
 }
