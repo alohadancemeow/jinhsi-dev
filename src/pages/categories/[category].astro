@@ -7,19 +7,20 @@ changeLanguage("zh");
 
 export async function getStaticPaths() {
     const categories = await GetCategories();
-    const categoryList = Array.from(categories.keys());
-    return categoryList.map((category) => ({
-        params: { category: category },
-    }));
-    //   if (Array.isArray(categories)) {
-    //     categories.keys().map((category) => {
-    //       return {
-    //         params: { category: category },
-    //       };
-    //     });
-    //   } else {
-    //     console.error("categories is not an array:", categories);
-    //   }
+    // const categoryList = Array.from(categories.keys());
+    // return categoryList.map((category) => ({
+    //     params: { category: category },
+    // }));
+    if (Array.isArray(categories)) {
+        categories.keys().map((category) => {
+            return {
+                params: { category: category },
+            };
+        });
+    }
+    else {
+        console.error("categories is not an array:", categories);
+    }
 }
 const categories = await GetCategories();
 const { category } = Astro.params;
